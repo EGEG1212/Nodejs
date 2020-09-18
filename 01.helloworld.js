@@ -1,5 +1,5 @@
 console.log('Hello World');
-
+//이거엄청중요한거 자다가도 벌떡 손가락으로 촤라락 나와야한다능
 let sum=0;
 for (let i=1; i<=100; i++)
     sum += i;
