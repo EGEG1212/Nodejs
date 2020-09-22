@@ -1,12 +1,3 @@
-/* for (let i=2; i<1000; i++) {
-    약수구하기
-    for(let k=1; k<i; k++) {
-        약수배열
-    }
-    약수배열의 합
-}
- */
-
 for (let i=2; i<1000; i++) {
     int n, cnt, i;
     int main()
