@@ -1,32 +1,29 @@
-//약수 구하는 함수 
+//약수 구하는 함수  perfectNumber
 function getDivisors(num) {
     let divArray = [];
-    for (let k=1; k<num; K++) {
+    for (let k=1; k<num; k++) {
         if (num % k === 0) {
-            divArray.push(k);
-        } 
-}
-................... 어엇.
-}
-
-
-
-
-for (let i=2; i<10000; i++) {
-    //약수구하기
-    let divArray = [];
-    for (let k=1; k<i; K++) {
-        if (i % k === 0) {
             divArray.push(k);
         }
     }
-    //약수의합구하기
+    return divArray;
+}
+// Array 원소의 합을 계산해주는 함수
+function sumArray(arr) {
     let sum = 0;
-    for (let divisor of divArray)
-        sum += divisor;
-    //숫자비교하기
-    if (i === sum) {
+    for (let element of arr) 
+        sum += element;
+    return sum;
+}
+
+for (let i=2; i<=10000; i++) {
+    // 약수 구하기
+    let array = getDivisors(i);
+    // 약수의 합 구하기
+    let divSum = sumArray(array);
+    // 숫자 비교하기
+    if (i === divSum) {
         console.log(i);
-        console.log(divArray);
-    }
+        console.log(array);
+    } 
 }

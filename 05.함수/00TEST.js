@@ -1,2 +1,7 @@
-const arr1 = new Array();
-const arr2 = [1, 2];
+for(let i = 1; i <=1000; i++) {
+    sum += Math.pow(numbers[i], 2)
+    let i = " ";
+
+console.log(numbers.split(','));    
+}
+console.log(numbers.length); 

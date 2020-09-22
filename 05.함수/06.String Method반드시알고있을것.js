@@ -1,16 +1,16 @@
 //w3c] String Length - 속성이라 괄호가 안붙는다
 let hello = '안녕하세요.'
-console.log(hello.length);           //6
+console.log(hello.length);           //6 총길이 length
 
 // String 내에서 문자열을 찾을 때 .indexOf .lastIndexOf .search
-console.log(hello.indexOf('하'));   // 6 2(두번째칸이라고알려줌)
+console.log(hello.indexOf('하'));   // 2(두번째칸이라고알려줌)
 console.log(hello.indexOf('한'));  // 없으니까 -1이라고 알려줌
 
 let str = "Please locate where 'locate' occurs!";
 let pos = str.lastIndexOf("locate");
-console.log(pos);
+console.log(pos);           //21번째에 locate가 있다. lastIndexOf
 
-console.log(str.search('locate'));
+console.log(str.search('locate')); //7번째에 locate가 있다. str.search
 
 //문자열내 일부 추출Extracting String Parts
 str = "Apple, Banana, Kiwi";
@@ -18,7 +18,7 @@ let res = str.slice(7, 13); //시작인덱스, 끝인덱스
 console.log(res);           //Banana
 console.log(str.slice(-4));         //Kiwi
 
-console.log(str.substr(7,6)); //Banana //시작인덱스, 갯수
+console.log(str.substr(7,6)); //Banana //시작인덱스, 갯수substr
 
 //문자열을 대체 Replacing String Content
 let newStr = str.replace(',', ':');  //한개만바뀜 Apple: Banana, Kiwi

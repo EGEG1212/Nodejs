@@ -1,49 +1,54 @@
-//w3c] String Length - 속성이라 괄호가 안붙는다
-let hello = '안녕하세요.'
-console.log(hello.length);           //6
+    //Array생성
+    let cars = ["Saab", "Volvo", "BMW"];
+    let persons = new Array('Jhon', 'Mary')
+    console.log(cars, persons); //[ 'Saab', 'Volvo', 'BMW' ] [ 'Jhon', 'Mary' ]
 
-// String 내에서 문자열을 찾을 때 .indexOf .lastIndexOf .search
-console.log(hello.indexOf('하'));   // 6 2(두번째칸이라고알려줌)
-console.log(hello.indexOf('한'));  // 없으니까 -1이라고 알려줌
+    console.log(cars.length, persons.length); // 3 2
+    cars.sort();
+    console.log(cars); //[ 'BMW', 'Saab', 'Volvo' ] 순서가 바뀜! sort
 
-let str = "Please locate where 'locate' occurs!";
-let pos = str.lastIndexOf("locate");
-console.log(pos);
+    //맨 마지막 엘리먼트
+    let fruits = ["Banana", "Orange", "Apple", "Mango"];
+    console.log(fruits[fruits.length - 1]);         //Mango
 
-console.log(str.search('locate'));
+    let html = '' ;
+    html += '<ul>\n';
+    for (let fruit of fruits) {
+        html += '<il>' + fruit + '</li>\n'
+    }
+    html += '</ul>\n'
+    console.log(html);
 
-//문자열내 일부 추출Extracting String Parts
-str = "Apple, Banana, Kiwi";
-let res = str.slice(7, 13); //시작인덱스, 끝인덱스
-console.log(res);           //Banana
-console.log(str.slice(-4));         //Kiwi
+    fruits[fruits.length] = 'Cherry'; // 렝스에 체리추가됨
+    console.log(fruits.join('-')); //하나로 묶는데 join -표시로 Banana-Orange-Apple-Mango-Cherry
 
-console.log(str.substr(7,6)); //Banana //시작인덱스, 갯수
+    let popitem = fruits.pop(); //맨 끝 엘리먼트 제거pop <>push
+    console.log(popitem, fruits); //pop 제일끝에있던 체리가 앞으로 튕겨져나감(꺼내는)
 
-//문자열을 대체 Replacing String Content
-let newStr = str.replace(',', ':');  //한개만바뀜 Apple: Banana, Kiwi
-console.log(newStr);
-newStr = str.replace(/,/g, ':') //다바뀜 Apple: Banana: Kiwi
-console.log(newStr);
+    let shiftItem = fruits.shift(); //제일 앞 엘리먼트 제거shift...많이사용은안하더라~
+    console.log(shiftItem, fruits); //제일 앞에있던 엘리먼트 바나나가 앞으로 나옴
 
+    fruits.unshift('Lemon'); //제일 앞 엘리먼트 추가unshift...많이사용은안하더라~
+    console.log(fruits);
 
-//이런게 있다~~~
-//패스워드 정규표현식  regular expression
-//패스워드 규칙.. 대소문자,특수기호,숫자. 3가지이상섞어 8-10자리
-//자바스크립트 패스워드 정규식 ' " 아니고 /이걸로끊음
-//스트링에 정규표현식을 써서 막강하게 일을 처리할 수 있다.
-//카톡내용긁어왔을때 ㅋ ㅎㅎ 이런거 지우는 표현식
+    delete fruits[0]; //파이썬에서는 없어지는데.. 빈칸이 나옴
+    console.log(fruits);
 
-//공백 제거 String.trim()
-str = "       Hello World!        ";
-console.log(str);
-console.log(str.trim());
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let spliceItem = fruits.splice(2, 1); //2번위치에 애플앞으로 꺼내기(그자리삭제)
+    console.log(spliceItem, fruits);
 
-//문자 추출 Extracting String Characters
-console.log(hello.charAt(2), hello[2]);  //하 하 같다.
+    console.log(cars + fruits); //차와 과일이 같이 출력이 될뿐, 합쳐지진 않았다.
+    console.log(cars.concat(fruits)); //차과 과일이 합쳐졌다! concat
 
-//문자열을 Array로 변경 Converting a String to an Array
-let txt = "a,b,c,d,e";
-console.log(txt.split(','));        //[ 'a', 'b', 'c', 'd', 'e' ]
+    fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+    let citrus = fruits.slice(2); //레몬부터 끝까지 잘려서 나옴 [ 'Lemon', 'Apple', 'Mango' ]
+    console.log(citrus);
+    citrus = fruits.slice(1, 3); //[ 'Orange', 'Lemon' ]
+    console.log(citrus);
 
+    console.log(fruits.toString()); //Banana,Orange,Lemon,Apple,Mango 스트링으로 찍힌답
 
+    fruits.forEach(function(value, index)){ //포이치 이런게 있다고만 알고있어라 ... 
+        console.log(index, value);
+    }

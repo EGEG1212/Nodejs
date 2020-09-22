@@ -14,7 +14,7 @@ function funcName() {
 funcName();
 console.log(funcName);                          //[Function: funcName]
 
-//화살표 함수 (요즘 많이 쓰는 추세)
+//function대신 화살표 함수 (요즘 많이 쓰는 추세)
 let arrowFunc = () => {
     console.log('화살표 함수');
 }
@@ -25,4 +25,4 @@ let power = x => {
     return x*x;
 }
 let power2 = x => x*x 
-console.log(power(10), power2(20));                 //100
+console.log(power(10), power2(20));                 //100 400
