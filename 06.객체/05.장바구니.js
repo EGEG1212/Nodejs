@@ -9,7 +9,7 @@ let cart = [            //array가 되어서  {}오브젝트안에 또다른 {}�
     }
 ];
 
-//제이슨으로 만들어볼까요
+//제이슨으로 만들어볼까요 내보낼때
 console.log(JSON.stringify(cart)); 
 //[{"product":{"name":"치약","vol":500,"price":3000},"quantity":5},{"product":{"name":"비누","vol":200,"price":1000},"quantity":4}]
 
