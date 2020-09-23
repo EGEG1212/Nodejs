@@ -9,11 +9,11 @@
     03:23 숫자를 스트링으로. 
      */
 
-let total = 0; //0으로 초기화
+let total = 0;                           //0으로 초기화
 for(let hour=0; hour<=23; hour++) {
     for (let min=0; min<60; min++) {
-        let time = hour + ':' + min; //트릭
-        if (time.indexOf('3')>=0) //indexOf사용
+        let time = hour + ':' + min;     //트릭 스트링으로 바꾸고
+        if (time.indexOf('3')>=0)       //indexOf사용해서 3을 찾는다.
             total +=60;
     }
 }
