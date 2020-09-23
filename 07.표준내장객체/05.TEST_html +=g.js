@@ -1,4 +1,5 @@
-//콜백함수를... ㅎㄷㄷ
+//교수님이 99%다 알려주셨지만.. 헛것을보았나ㅠㅠ06객체 18p.
+/*  html += 포인트 */
 
 let products = [
     { name: '바나나', price: 1200 },
@@ -17,15 +18,16 @@ let html = `<table>
 `;
 
 for (let product of products) {
-    console.log(`
-    <tr>
-        <th>${product.name}</th>
-        <th>${product.price}</th>   
-    </tr>    
-`);
+    html += `
+        <tr>
+            <td>${product.name}</td>
+            <td>${product.price}</td>   
+        </tr>    
+    `;
 }
 
 
 html += '</table>'
 console.log(html);
+
 
