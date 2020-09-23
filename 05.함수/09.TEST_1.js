@@ -1,26 +1,45 @@
-/* 1. 양의 정수 N을 입력으로 받아 
+/* 1. 양의 정수 N을 입력으로 받아  rl.on('line', function(buf) {
     1부터 N까지 제곱의 합과
     합의 제곱을 구하시오. */    
 /*교수님풀이     --1😁👍
 썸오프스퀘어 제곱의 합초기화
 곱하기가 우선순위가 있으니
+*/
+const readline = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+rl.setPrompt('양의 정수> ');
+rl.prompt();
+// 34, 82, 93
 
-합의제곱 구하기
-let sum
-for let */
-
-rl.on('line', function (buf) {
+rl.on('line', function (buf) {  // 입력을 받아서 처리하는 로직
     let number = parseInt(buf);
 
     let sumOfSquare = 0; //제곱의 합의 초기화
-    for (let i=1; i<=number)
-})
+    for (let i=1; i<=number; i++) {
+        sumOfSquare += i * i;
+    }
+    console.log(`1에서 ${number}까지의 제곱의 합: ${sumOfSquare}`);
+
+    let sum = 0;
+    for (let i=1; i<=number; i++) {
+        sum += i;
+    }
+    let squareOfSum = sum * sum; //합의 제곱
+    console.log(`1에서 ${number}까지의 합의 제곱: ${squareOfSum}`);
+
+    //끝날때 반드시 처리
+    rl.close();
+});
 
 
 
 
 
 
+/* 조각조각 찾아본 자료
 //1~10까지 제곱의 합
 function sigma_n2(n) {
     let sum = 0;
@@ -49,4 +68,4 @@ for(let i = 1; i <= 100; i++) {
     sum = sum + i;
 }
 console.log(sum);
-https://hianna.tistory.com/393
+https://hianna.tistory.com/393 */
