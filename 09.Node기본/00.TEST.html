@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function change(id) {
+            let button = document.getElementById(id);
+            let random = Math.floor(Math.random() * 3);
+            button.innerHTML = random;
+            clickCount++;
+            numbers.push(random);
+            if (clickCount === 3)
+            setInterval(function () {
+                playGame();
+            }, 2000);
+        }
+
+
+    </script>
+</head>
+<body>
+    <h3>게임만들기</h3>
+    <p>게임머니: <span id="money">10000</span>원
+    횟수 : <span id = "count">0</span>회</p>
+    <button id="one" onclick="change('one')"> ? </button>
+    <button id="two" onclick="caches('two')"> ? </button>
+    <button id="three" onclick="changes('three')"></button>
+</body>
+</html>
