@@ -1,5 +1,5 @@
-const { error } = require('console');
 // node this.js failename [option]파일명에 append있으면 올라가게
+
 const fs = require('fs');
 const readline = require('readline');
 
@@ -24,7 +24,7 @@ const rl = readline.createInterface({
 rl.setPrompt('> ');
 
 rl.prompt();
-let input = '';         // 빈스트링을 하나 만들어줍니다.
+let input = '';        
 rl.on('line', function(buf) {
     input += buf + '\n';
     rl.prompt();
