@@ -11,7 +11,7 @@ http.createServer(function(req, res) {
         fs.readdir('data', function(error, filelist) {       //데이터 폴더를 주면
             let list = '';
             for (let file of filelist) {
-                let filename = file.substring(0, file.length-4);
+                let filename = file.substring(0, file.length-4); //파일명의txt를떼려고
                 list += `<li><a href="/?id=${filename}">${filename}</a></li>`
             }
             let html = view.index(list);
