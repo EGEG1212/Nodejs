@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 
 http.createServer((req, res)=> {
-    let query = url.parse(req.url, true).query;
+    let query = url.parse(req.url, true).query; //쿼리를 잡아뺴면
     console.log(query.name, query.region);             // GET parameta를 내 터미널에도 출력
     // GET parameta를 웹화면에 출력 localhost:3000?name=kim&region=Seoul
     res.end(`<h1>${JSON.stringify(query)}</h1>`)

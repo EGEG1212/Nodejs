@@ -29,21 +29,21 @@ http.createServer(function(req, res) {
                 fs.readFile(filename, 'utf8', (error, buffer) => {
                     let html = view.index(title, list, buffer, control);
                     res.end(html);   
-                });
             });
-        }
+        });
+    }
         break;              //확실하게 브레이크🙌해줘야 에러안납니다~
     case '/create':         //폼과 제출버튼 만들어주려고
         fs.readdir('data', function(error, filelist) {       
             let list = template.listGen(filelist);
-            let content = template.createForm();
             let control = template.buttonGen();
+            let content = template.createForm();
             let html = view.index('글 생성', list, content, control);
             res.end(html);   
         });
         break;
     case '/create_proc' :
-        body = '';                      //post파라미터 받는 방법
+        body = '';                      //post파라미터 받는 방법✨
         req.on('data', function(data) { 
             body += data;
         })
@@ -52,7 +52,7 @@ http.createServer(function(req, res) {
             //console.log(param.subject, param.description);
             let filepath = 'data/' + param.subject + '.txt' ;
             fs.writeFile(filepath, param.description, error => {
-                res.writeHead(302, {'Location': `/?id=${param.subject}`});
+                res.writeHead(302,{'Location': `/?id=${param.subject}`});
                 res.end();
             });
         });
@@ -60,60 +60,25 @@ http.createServer(function(req, res) {
     case '/delete' :
         fs.readdir('data', function(error, filelist) {       
             let list = template.listGen(filelist);
-            let content = template.deleteForm(query.id);
-            let control = template.buttonGen();
+            let content = template.deleteForm(query.id); //삭제하는폼을주고
+            let control = template.buttonGen();     //버튼유지
             let html = view.index('글 삭제', list, content, control);
             res.end(html);   
         });
         break;
     case '/delete_proc' :
-        body = '';                      //post파라미터 받는 방법
+        body = '';                      //post파라미터 받는 방법✨
         req.on('data', function(data) { 
             body += data;
         })
         req.on('end', function() {
-            let param = qs.parse(body);
+            let param = qs.parse(body); //여기까지 post파라미터 받는 방법
             let filepath = 'data/' + param.subject + '.txt' ;
             fs.unlink(filepath, error => {
                 res.writeHead(302,{'Location': '/'});
                 res.end();
             });
         });
-        break;
-    case '/update' :
-        fs.readdir('data', function(error, filelist) {       
-            let list = template.listGen(filelist);
-            let title = query.id;
-            let control = template.buttonGen();     //버튼유지
-            let filename = 'data/' + title + '.txt' ;
-            fs.readFile(filename, 'utf8', (error, buffer) => {
-                let content = template.updateForm(title, buffer); //수정하는 폼을주고,원래내용 버퍼를 가져오다
-                let html = view.index(`${title}수정`, list, content, control);
-                res.end(html);   
-            });
-        });
-        break;
-    case '/update_proc':
-        body = '';
-        req.on('data', function(data) {
-            body += data;
-        })
-        req.on('end', function() {
-            let param = qs.parse(body);
-            //console.log(param.original, param.subject, param.description);
-            let filepath = 'data/' + param.original + '.txt';
-            fs.writeFile(filepath, param.description, error => {
-                if (param.original !== param.subject) {
-                    fs.rename(filepath, `data/${param.subject}.txt`, error => {
-                        res.writeHead(302, {'Location': `/?id=${param.subject}`});
-                        res.end();
-                    });
-                } else {
-                    res.writeHead(302, {'Location': `/?id=${param.subject}`});
-                    res.end();
-                }
-            });
-        }); 
         break;
     default:
         res.writeHead(404);
