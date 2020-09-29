@@ -27,6 +27,7 @@ http.createServer(function(req, res) {
                 let control = template.buttonGen(title);
                 let filename = 'data/' + title + '.txt';
                 fs.readFile(filename, 'utf8', (error, buffer) => {
+                    buffer = buffer.replace(/\n/g, '</br>');
                     let html = view.index(title, list, buffer, control);
                     res.end(html);   
                 });
